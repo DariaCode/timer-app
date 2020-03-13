@@ -10,6 +10,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const graphqlHttp = require('express-graphql');
 const mongoose = require('mongoose');
+const isAuth = require('./middleware/is-auth');
 
 const graphQlSchema = require('./graphql/schema/index');
 const graphQlResolvers = require('./graphql/resolvers/index');
@@ -17,6 +18,8 @@ const graphQlResolvers = require('./graphql/resolvers/index');
 const app = express();
 
 app.use(bodyParser.json());
+
+app.use(isAuth);
 
 app.use('/graphql', graphqlHttp({
     schema: graphQlSchema,
@@ -26,22 +29,10 @@ app.use('/graphql', graphqlHttp({
 
 /*
 MUST CHANGE IT!!!!!
-mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-mthik.gcp.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`)
-
-mutation {
-  createTask(taskInput: {title: "test2", description: "test again", price: 9.99, date: "2020-03-10T03:35:42.911Z"}) {
-    title
-  }
-}
-query {
-  tasks {
-    title
-    _id
-  } 
-}
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-mthik.gcp.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`);
 */
 
-mongoose.connect(`mongodb+srv://?retryWrites=true&w=majority`, {
+mongoose.connect(`mongodb+srv://dariacode:Willy1109@cluster0-mthik.gcp.mongodb.net/timer-app?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
