@@ -1,5 +1,5 @@
 /* ----------------------------------------------------
-Node.js / Task's schema for MondoDB
+Node.js / Task's schema for MongoDB
 Updated: 03/10/2020
 Author: Daria Vodzinskaia
 Website: www.dariacode.dev
