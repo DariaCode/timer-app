@@ -7,7 +7,7 @@ Website: www.dariacode.dev
 -------------------------------------------------------  */
 
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import AuthContext from '../../context/auth-context';
 
 import './Sidebar.css';
@@ -18,20 +18,18 @@ const sidebar = props => {
             {context => {
                 return (
                     <div className="main-sidebar">
-                        <div className="main-bar__items">
-                            <ul>
-                                {context.token && (
-                                    <React.Fragment>
-                                        <li>
-                                            <Link to="/sendings">Sendings</Link>
-                                        </li>
-                                    </React.Fragment>
-                                )}
+                            <ul className="main-bar__items">
                                 <li>
-                                    <Link to="/tasks">Tasks</Link>
+                                    <NavLink to="/tasks">All tasks</NavLink>
                                 </li>
+                                <li>Today</li>
+                                <li>This week</li>
+                                <li>
+                                    <NavLink to="/sendings">Sendings</NavLink>
+                                </li>
+                                <li>Progress</li>
+                                <li>Completed</li>
                             </ul>
-                        </div>
                     </div>
                 );
             }}
