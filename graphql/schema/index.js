@@ -12,9 +12,9 @@ module.exports = buildSchema(`
 type Task {
     _id: ID! 
     title: String!
-    description: String!
-    price: Float!
-    date: String!
+    priority: Float!
+    date: String
+    complete: Boolean!
     creator: User!
 } 
 
@@ -41,15 +41,14 @@ type Sending {
 
 input TaskInput {
     title: String!
-    description: String!
-    price: Float!
-    date: String!
+    priority: Float!
+    date: String
+    complete: Boolean!
 }
 
 input UpdateTaskInput {
     title: String
-    description: String
-    price: Float
+    priority: Float
     date: String
 }
 
@@ -70,6 +69,7 @@ type RootMutation {
     sendTask(taskId: ID!): Sending!
     cancelSending(sendingId: ID!): Task!
     updateTask(taskId: ID!, taskInput: UpdateTaskInput): Task!
+    completeTask(taskId: ID!): Task!
     deleteTask(taskId: ID!): Task!
 }
 
