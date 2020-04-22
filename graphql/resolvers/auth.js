@@ -22,7 +22,7 @@ module.exports = {
             if (existingUser) {
                 throw new Error('User exists already')
             }
-            const hashedPassword = await bcrypt.hash(args.userInput.password, 9)
+            const hashedPassword = await bcrypt.hash(args.userInput.password, 1002)
 
             const user = new User({
                 email: args.userInput.email,
@@ -55,7 +55,7 @@ module.exports = {
         const token = jwt.sign({
             userId: user.id,
             email: user.email
-        }, 'willyisthebestdog', {
+        }, 'somemagicwords', {
             expiresIn: '1h'
         });
         return {
