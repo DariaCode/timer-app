@@ -23,7 +23,7 @@ module.exports = (req, res, next) => {
   }
   let decodedToken;
   try {
-    decodedToken = jwt.verify(token, 'willyisthebestdog');
+    decodedToken = jwt.verify(token, 'somesecretword');
   } catch (err) {
     req.isAuth = false;
     return next();
