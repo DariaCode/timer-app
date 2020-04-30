@@ -6,7 +6,7 @@ Author: Daria Vodzinskaia
 Website: www.dariacode.dev
 -------------------------------------------------------  */
 
-const { buildSchema } = require('graphql');
+const {buildSchema} = require('graphql');
 
 module.exports = buildSchema(` 
 type Task {
@@ -15,6 +15,10 @@ type Task {
     priority: Float!
     date: String
     complete: Boolean!
+    start: String
+    end: String
+    intervalK: Float
+    intervalN: String
     creator: User!
 } 
 
@@ -44,6 +48,10 @@ input TaskInput {
     priority: Float!
     date: String
     complete: Boolean!
+    start: String
+    end: String
+    intervalK: Float
+    intervalN: String
 }
 
 input UpdateTaskInput {
