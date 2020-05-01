@@ -42,7 +42,7 @@ app.use('/graphql', graphqlHttp({
   graphiql: true, // for testing
 }));
 
-mongoose.connect(`mongodb+srv://dariacode:Willy1109@cluster0-mthik.gcp.mongodb.net/timer-app?retryWrites=true&w=majority`, {
+mongoose.connect(`mongodb+srv://name:password@cluster0-mthik.gcp.mongodb.net/name?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
